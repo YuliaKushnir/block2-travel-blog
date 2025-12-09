@@ -1,0 +1,209 @@
+[
+  {
+    "title": "Weekend in Rome",
+    "content": "Exploring ancient ruins and tasting authentic Italian pizza.",
+    "country": "Italy",
+    "categories": ["culture", "food", "city", "adventure"],
+    "createdAt": "2025-12-01",
+    "rating": 4.5,
+    "userId": 3
+  },
+  {
+    "title": "Chasing Waterfalls in Iceland",
+    "content": "A breathtaking journey through Iceland’s natural wonders.",
+    "country": "Italy",
+    "categories": ["nature", "adventure", "photography"],
+    "createdAt": "2025-12-02",
+    "rating": 4.5,
+    "userId": 5
+  },
+  {
+    "title": "Tokyo Nights and Traditions",
+    "content": "From neon lights to ancient temples — Tokyo has it all.",
+    "country": "Japan",
+    "categories": ["city", "culture", "adventure"],
+    "createdAt": "2025-12-03",
+    "rating": 4.5,
+    "userId": 5
+  },
+  {
+    "title": "Jungle Trek in Borneo",
+    "content": "Orangutans, riverboats, and dense rainforest trails.",
+    "country": "Malaysia",
+    "categories": ["wildlife", "adventure"],
+    "createdAt": "2025-12-04",
+    "rating": 4.5,
+    "userId": 1
+  },
+  {
+    "title": "Vienna’s Classical Charm",
+    "content": "Opera houses, palaces, and coffee culture.",
+    "country": "Austria",
+    "categories": ["culture", "music", "city"],
+    "createdAt": "2025-12-05",
+    "rating": 3.9,
+    "userId": 2
+  },
+  {
+    "title": "Exploring the Amazon River",
+    "content": "Piranhas, pink dolphins, and jungle lodges.",
+    "country": "Brazil",
+    "categories": ["nature", "adventure"],
+    "createdAt": "2025-12-06",
+    "rating": 3.5,
+    "userId": 2
+  },
+  {
+    "title": "Cappadocia from the Sky",
+    "content": "Hot air balloons over fairy chimneys.",
+    "country": "Turkey",
+    "categories": ["photography", "adventure"],
+    "createdAt": "2025-12-06",
+    "rating": 4.7,
+    "userId": 1
+  },
+  {
+    "title": "Lisbon’s Hidden Corners",
+    "content": "Tram rides, tiled walls, and fado music.",
+    "country": "Portugal",
+    "categories": ["city", "culture"],
+    "createdAt": "2025-12-08",
+    "rating": 4.5,
+    "userId": 3
+  },
+  {
+    "title": "Namib Desert Safari",
+    "content": "Red dunes, starry skies, and desert wildlife.",
+    "country": "Namibia",
+    "categories": ["desert", "wildlife"],
+    "createdAt": "2025-12-09",
+    "rating": 5.0,
+    "userId": 1
+  },
+  {
+    "title": "Kyoto’s Zen Gardens",
+    "content": "Tranquility, temples, and cherry blossoms.",
+    "country": "Japan",
+    "categories": ["culture", "nature"],
+    "createdAt": "2025-12-10",
+    "rating": 4.5,
+    "userId": 1
+  },
+  {
+    "title": "Surfing in Australia",
+    "content": "Waves, wetsuits, and beach bonfires.",
+    "country": "Australia",
+    "categories": ["beach", "sport"],
+    "createdAt": "2025-12-11",
+    "rating": 4.5,
+    "userId": 2
+  },
+  {
+    "title": "Exploring Havana",
+    "content": "Classic cars, salsa rhythms, and colonial charm.",
+    "country": "Cuba",
+    "categories": ["culture", "music", "city"],
+    "createdAt": "2025-12-12",
+    "rating": 3.2,
+    "userId": 2
+  },
+  {
+    "title": "Volcano Trek in Guatemala",
+    "content": "Lava views and sunrise hikes.",
+    "country": "Guatemala",
+    "categories": ["adventure", "hiking"],
+    "createdAt": "2025-12-13",
+    "rating": 4.5,
+    "userId": 2
+  },
+  {
+    "title": "Snowboarding in the Rockies",
+    "content": "Powder runs and mountain lodges.",
+    "country": "USA",
+    "categories": ["sport", "mountains"],
+    "createdAt": "2025-12-14",
+    "rating": 4.9,
+    "userId": 1
+  },
+  {
+    "title": "Island Hopping in the Philippines",
+    "content": "White sands, coral reefs, and boat rides.",
+    "country": "Philippines",
+    "categories": ["beach", "snorkeling"],
+    "createdAt": "2025-12-15",
+    "rating": 2.0,
+    "userId": 3
+  },
+  {
+    "title": "Berlin’s Street Art Scene",
+    "content": "Murals, history, and underground culture.",
+    "country": "Germany",
+    "categories": ["art", "city", "culture"],
+    "createdAt": "2025-12-16",
+    "rating": 4.4,
+    "userId": 2
+  },
+  {
+    "title": "Trekking the Himalayas",
+    "content": "High-altitude beauty and spiritual encounters.",
+    "country": "Nepal",
+    "categories": ["hiking", "nature", "spirituality"],
+    "createdAt": "2025-12-17",
+    "rating": 5.0,
+    "userId": 1
+  },
+  {
+    "title": "Sakura Season in Osaka",
+    "content": "Blossoms, bento, and riverside walks.",
+    "country": "Japan",
+    "categories": ["nature", "culture"],
+    "createdAt": "2025-12-18",
+    "rating": 4.9,
+    "userId": 2
+  },
+  {
+    "title": "Exploring Seoul’s Markets",
+    "content": "Street food, skincare, and neon nights.",
+    "country": "South Korea",
+    "categories": ["food", "shopping", "city"],
+    "createdAt": "2025-12-19",
+    "rating": 3.0,
+    "userId": 1
+  },
+  {
+    "title": "Safari in South Africa",
+    "content": "Lions, leopards, and luxury lodges.",
+    "country": "South Africa",
+    "categories": ["wildlife", "luxury"],
+    "createdAt": "2025-12-20",
+    "rating": 5.0,
+    "userId": 3
+  },
+  {
+    "title": "Budapest’s Thermal Baths",
+    "content": "Relaxation in historic spas.",
+    "country": "Hungary",
+    "categories": ["relaxation", "culture"],
+    "createdAt": "2025-12-21",
+    "rating": 4.4,
+    "userId": 3
+  },
+  {
+    "title": "Exploring the Andes",
+    "content": "Highland villages and breathtaking views.",
+    "country": "Peru",
+    "categories": ["mountains", "culture"],
+    "createdAt": "2025-12-22",
+    "rating": 4.2,
+    "userId": 3
+  },
+  {
+    "title": "Midnight Sun in Finland",
+    "content": "Endless daylight and forest cabins.",
+    "country": "Finland",
+    "categories": ["nature", "unique experiences"],
+    "createdAt": "2025-12-23",
+    "rating": 4.8,
+    "userId": 3
+  }
+]

@@ -1,0 +1,74 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create-user-schema" author="yulia">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-post-schema" author="yulia">
+        <createTable tableName="posts">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="content" type="CLOB"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="created_at" type="DATE"/>
+            <column name="rating" type="DOUBLE"/>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="FK_post_user" references="users(id)"/>
+            </column>
+        </createTable>
+        <createIndex tableName="posts" indexName="idx_post_country">
+            <column name="country"/>
+        </createIndex>
+        <createIndex tableName="posts" indexName="idx_post_created_at">
+            <column name="created_at"/>
+        </createIndex>
+        <createIndex tableName="posts" indexName="idx_post_rating">
+            <column name="rating"/>
+        </createIndex>
+        <createIndex tableName="posts" indexName="idx_post_user_id">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="create-post-categories-schema" author="yulia">
+        <createTable tableName="post_categories">
+            <column name="post_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_post_categories_post" references="posts(id)"/>
+            </column>
+            <column name="categories" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="add-users-to-users-schema" author="yulia">
+        <insert tableName="users">
+            <column name="name" value="Marusia"/>
+            <column name="email" value="marusia@example.com"/>
+            <column name="password" value="12345678"/>
+        </insert>
+        <insert tableName="users">
+            <column name="name" value="Natalochka"/>
+            <column name="email" value="natalochka@example.com"/>
+            <column name="password" value="12345678"/>
+        </insert>
+        <insert tableName="users">
+            <column name="name" value="Alex"/>
+            <column name="email" value="alex@example.com"/>
+            <column name="password" value="12345678"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
