@@ -13,6 +13,7 @@ import org.example.block2travelblog.data.Post;
 import org.example.block2travelblog.data.User;
 import org.example.block2travelblog.dto.*;
 import org.example.block2travelblog.exception.CreationException;
+import org.example.block2travelblog.messaging.EmailMessage;
 import org.example.block2travelblog.repository.PostRepository;
 import org.example.block2travelblog.repository.UserRepository;
 import org.example.block2travelblog.repository.specification.PostSpecifications;
@@ -39,6 +40,7 @@ public class PostServiceImpl implements PostService {
     private final UserRepository userRepository;
     private final PostRepository postRepository;
     private final ObjectMapper objectMapper;
+    private final PostCreatedNotificationService postCreatedNotificationService;
 
     /**
      * Creates a new post
@@ -63,6 +65,19 @@ public class PostServiceImpl implements PostService {
         if (createdPost == null || createdPost.getId() == null) {
             throw new CreationException("Failed to create post");
         }
+
+        List<String> allRecipients = userRepository.findAll()
+                .stream()
+                .map(User::getEmail)
+                .toList();
+
+        EmailMessage emailMessage = EmailMessage.builder()
+                .subject("Новий допис від " + user.getName())
+                .content("Користувач " + user.getName() + " публікує новий допис: " + createdPost.getTitle())
+                .recipientsEmails(allRecipients)
+                .build();
+
+        postCreatedNotificationService.sendPostCreatedNotification(emailMessage);
 
         return mapPostToPostDto(createdPost);
     }

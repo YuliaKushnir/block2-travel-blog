@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  block2-travel-blog:
+    build: .
+    container_name: block2-travel-blog
+    ports:
+      - "8080:8080"
+    depends_on:
+#     - rabbitmq
+      - postgres
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/travel_blog
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 12345678
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+
+      SPRING_JPA_HIBERNATE_DDL_AUTO: none
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+
+      SPRING_LIQUIBASE_CHANGE_LOG: classpath:liquibase-changelog.xml
+
+      SPRING_WEB_ERROR_INCLUDE_MESSAGE: always
+      SPRING_WEB_ERROR_INCLUDE_STACKTRACE: never
+    networks:
+      - shared-net
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_DB: travel_blog
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - shared-net
+
+volumes:
+  postgres_data:
+
+networks:
+  shared-net:
+    external: true
