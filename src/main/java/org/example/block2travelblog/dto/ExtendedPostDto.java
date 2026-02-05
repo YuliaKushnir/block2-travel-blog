@@ -19,7 +19,7 @@ public class ExtendedPostDto {
     private String title;
     private String content;
     private String country;
-    private List<String> category;
+    private List<String> categories;
     private LocalDate createdAt;
     private Double rating;
     private UserDto author;

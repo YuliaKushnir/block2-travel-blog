@@ -30,7 +30,7 @@ public class SavePostDto {
     private String country;
 
     @NotNull(message = "categories are required")
-    @Size(min = 1, message = "at least one category is required")
+    @Size(min = 1, message = "at least one categories is required")
     private List<String> categories;
 
     @NotNull(message = "userId is required")

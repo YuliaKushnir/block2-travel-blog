@@ -61,7 +61,6 @@ public class PostController {
     public PostDto updatePost(
             @PathVariable @NotNull @Min(1) Long id,
             @Valid @RequestBody SavePostDto savePostDto) {
-
         return postService.updatePost(id, savePostDto);
     }
 

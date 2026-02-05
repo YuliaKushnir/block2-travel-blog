@@ -1,14 +1,19 @@
 version: '3.8'
 services:
-  block2-travel-blog:
+  posts-service:
     build: .
-    container_name: block2-travel-blog
+    container_name: posts-service
     ports:
       - "8080:8080"
     depends_on:
-#     - rabbitmq
       - postgres
     environment:
+      SPRING_APPLICATION_NAME: posts-service
+
+      SPRING_CONFIG_IMPORT: optional:consul:/
+      SPRING_CLOUD_CONSUL_HOST: consul
+      SPRING_CLOUD_CONSUL_PORT: 8500
+
       SPRING_RABBITMQ_HOST: rabbitmq
       SPRING_RABBITMQ_PORT: 5672
       SPRING_RABBITMQ_USERNAME: guest
@@ -27,6 +32,9 @@ services:
 
       SPRING_WEB_ERROR_INCLUDE_MESSAGE: always
       SPRING_WEB_ERROR_INCLUDE_STACKTRACE: never
+
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: http://auth-server:8083/oauth2/jwks
+
     networks:
       - shared-net
 

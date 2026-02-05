@@ -21,6 +21,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
@@ -57,7 +58,7 @@ public class PostServiceImpl implements PostService {
         BeanUtils.copyProperties(savePostDto, post);
         post.setCategories(savePostDto.getCategories());
         post.setCreatedAt(LocalDate.now());
-        post.setRating(0.0);
+        post.setRating(4.5);
         post.setUser(user);
 
         Post createdPost = postRepository.save(post);
@@ -99,7 +100,7 @@ public class PostServiceImpl implements PostService {
 
         ExtendedPostDto extendedPostDto = new ExtendedPostDto();
         BeanUtils.copyProperties(post, extendedPostDto);
-        extendedPostDto.setCategory(post.getCategories());
+        extendedPostDto.setCategories(post.getCategories());
         extendedPostDto.setAuthor(userDto);
 
         return extendedPostDto;
@@ -147,7 +148,10 @@ public class PostServiceImpl implements PostService {
      * @return FilteredPostResponse with list of posts, total number of pages and total count of elements
      */
     public FilteredPostResponse search(PostQueryDto postQueryDto) {
-        Pageable pageable = PageRequest.of(postQueryDto.getFrom(), postQueryDto.getSize());
+        Pageable pageable = PageRequest.of(
+                postQueryDto.getFrom(),
+                postQueryDto.getSize(),
+                Sort.by(Sort.Direction.DESC, "createdAt"));
 
         Specification<Post> specification = buildSpecification(postQueryDto);
 
@@ -243,7 +247,7 @@ public class PostServiceImpl implements PostService {
 
     private void createHeaderRow(Sheet sheet) {
         Row headerRow = sheet.createRow(0);
-        String[] columns = {"id", "title", "content", "country", "category", "createdAt", "rating", "userId"};
+        String[] columns = {"id", "title", "content", "country", "categories", "createdAt", "rating", "userId"};
         for (int i = 0; i < columns.length; i++) {
             headerRow.createCell(i).setCellValue(columns[i]);
         }

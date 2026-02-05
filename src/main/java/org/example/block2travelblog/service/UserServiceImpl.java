@@ -9,6 +9,7 @@ import org.example.block2travelblog.exception.CreationException;
 import org.example.block2travelblog.exception.DuplicateEmailException;
 import org.example.block2travelblog.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,6 +100,19 @@ public class UserServiceImpl implements UserService {
             throw new EntityNotFoundException("User not found");
         }
         userRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public UserDto getOrCreateOAuthUser(String email, String name){
+        return mapUserToUserDto(userRepository.findByEmail(email)
+                .orElseGet(() -> {
+                    User user = new User();
+                    user.setEmail(email);
+                    user.setName(name);
+                    user.setPassword(null);
+                    return userRepository.save(user);
+                }));
     }
 
     private void checkIfUserExistsWithEmail(String email, Long userId) {

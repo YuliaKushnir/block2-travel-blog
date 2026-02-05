@@ -2,6 +2,7 @@ package org.example.block2travelblog.service;
 
 import org.example.block2travelblog.dto.SaveUserDto;
 import org.example.block2travelblog.dto.UserDto;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface UserService {
     UserDto updateUser(Long id, SaveUserDto saveUserDto);
 
     void deleteUser(Long id);
+
+    UserDto getOrCreateOAuthUser(String email, String name);
 }

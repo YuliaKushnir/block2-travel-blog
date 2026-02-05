@@ -146,7 +146,7 @@ class PostControllerTest {
         assertThat(extendedPostDto.getTitle()).isEqualTo("Test Title");
         assertThat(extendedPostDto.getContent()).contains("Test Content");
         assertThat(extendedPostDto.getCountry()).isEqualTo("Ukraine");
-        assertThat(extendedPostDto.getCategory()).containsExactly("travel", "city");
+        assertThat(extendedPostDto.getCategories()).containsExactly("travel", "city");
         assertThat(extendedPostDto.getRating()).isEqualTo(0.0);
         assertThat(extendedPostDto.getCreatedAt()).isEqualTo(LocalDate.now());
 
