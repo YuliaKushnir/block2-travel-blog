@@ -26,8 +26,8 @@ jobs:
           distribution: 'temurin'
 
       - name: Build jar
-        run: mvn clean package
-#        run: mvn clean package -DskipTests
+#        run: mvn clean package
+        run: mvn clean package -DskipTests
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
